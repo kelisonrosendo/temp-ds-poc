@@ -1,5 +1,5 @@
 <template>
-  <v-btn outlined color="error">
+  <v-btn :outlined="outlined" :color="color">
     {{ name }}
   </v-btn>
 </template>
@@ -12,8 +12,8 @@ export default {
       type: String,
       required: true,
     },
+    color: String,
+    outlined: Boolean,
   },
 };
 </script>
-
-<style lang="scss" scoped></style>

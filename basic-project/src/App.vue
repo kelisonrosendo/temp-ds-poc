@@ -1,9 +1,16 @@
 <template>
-  <div id="app">
-    <z-button name="texto do botão" />
-    <z-alert text="esse é o texto do meu alert bunito" />
-    <z-collapse />
-  </div>
+  <v-app>
+    <v-container>
+      <z-button name="Ah miseravi!" color="error" class="mb-10" />
+      <z-alert
+        is-dark
+        text="Textão bunito do alert"
+        color="indigo"
+        class="mb-10"
+      />
+      <z-collapse :items="expansionList" />
+    </v-container>
+  </v-app>
 </template>
 
 <script>
@@ -16,16 +23,29 @@ export default {
     ZAlert,
     ZCollapse,
   },
+  data() {
+    return {
+      expansionList: [
+        {
+          id: 0,
+          title:
+            "Cont. 1 | Tipo: AIH | Beneficiário: 0000000000 - Fulano de Tal",
+          checkbox: true,
+        },
+        {
+          id: 1,
+          title:
+            "Cont. 2 | Tipo: AIH | Beneficiário: 0000000000 - Fulano de Tal",
+          checkbox: true,
+        },
+        {
+          id: 2,
+          title:
+            "Cont. 3 | Tipo: AIH | Beneficiário: 0000000000 - Fulano de Tal",
+          checkbox: true,
+        },
+      ],
+    };
+  },
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

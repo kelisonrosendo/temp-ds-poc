@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name z-components src/index.js",
+    "build": "vue-cli-service build --target lib --name z-components src/components/index.js",
     "lint": "vue-cli-service lint",
     "build-storybook": "build-storybook",
     "storybook": "start-storybook -p 6006"

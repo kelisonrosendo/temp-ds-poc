@@ -1,5 +1,5 @@
 <template>
-  <v-alert border="left" color="indigo" dark>
+  <v-alert :border="border" :color="color" :dark="isDark">
     {{ text }}
   </v-alert>
 </template>
@@ -10,9 +10,14 @@ export default {
   props: {
     text: {
       type: String,
-      default: "",
       required: true,
     },
+    border: {
+      type: String,
+      default: "left",
+    },
+    color: String,
+    isDark: Boolean,
   },
 };
 </script>

@@ -15,9 +15,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 1. `npm i` (para instalar as dependências)
 2. `npm run build` (para gerar o pacote com os componentes exportados no arquivo `index.js`)
 3. `cp package.json dist` (copiar o arquivo `package.json` para a pasta `dist`)
+4. `npm run serve` (para rodar o projeto)
 
 #### pasta basic-project (um projeto qualquer que vai consumir a biblioteca)
 
 1. `npm i` (para instalar as dependências)
-2. `npm i (npm pack C:/projetos/z-components/dist)` (para instalar a biblioteca localmente)
+2. `npm i (npm pack C:/projetos/temp-ds-poc/z-components/dist)` (para instalar a biblioteca localmente)
 3. `npm run serve` (para rodar o projeto)

@@ -1,63 +1,50 @@
 <template>
-  <v-container>
-    <v-expansion-panels v-model="panel">
-      <v-expansion-panel v-for="item in expansionList" :key="item.id">
-        <v-expansion-panel-header disable-icon-rotate>
-          <strong>{{ item.title }}</strong>
-          <template v-slot:actions>
-            <v-icon>
-              {{ activateItem(item.id) }}
-            </v-icon>
-          </template>
-        </v-expansion-panel-header>
-        <v-expansion-panel-content>
-          <v-textarea
-            outlined
-            no-resize
-            hide-details
-            height="70"
-            label="Observações (opcional)"
-            value=" "
-          />
-          <v-checkbox
-            v-model="checkbox"
-            hide-details
-            label="Replicar para outros atendimentos"
-          />
-        </v-expansion-panel-content>
-      </v-expansion-panel>
-    </v-expansion-panels>
-  </v-container>
+  <v-expansion-panels v-model="panel">
+    <v-expansion-panel v-for="item in items" :key="item.id">
+      <v-expansion-panel-header disable-icon-rotate>
+        <strong>{{ item.title }}</strong>
+        <template v-slot:actions>
+          <v-icon>
+            {{ chooseIcon(item.id) }}
+          </v-icon>
+        </template>
+      </v-expansion-panel-header>
+      <v-expansion-panel-content>
+        <v-textarea
+          outlined
+          no-resize
+          hide-details
+          height="70"
+          label="Observações (opcional)"
+          value=" "
+        />
+        <v-checkbox
+          v-model="item.checkbox"
+          hide-details
+          label="Replicar para outros atendimentos"
+        />
+      </v-expansion-panel-content>
+    </v-expansion-panel>
+  </v-expansion-panels>
 </template>
 
 <script>
 export default {
   name: "ZCollapse",
+  props: {
+    items: {
+      type: Array,
+      default: () => [],
+      required: true,
+    },
+  },
   data() {
     return {
       panel: 0,
-      checkbox: false,
-      expansionList: [
-        {
-          id: 0,
-          title:
-            "Cont. 1 | Tipo: AIH | Beneficiário: 0000000000 - Fulano de Tal",
-        },
-        {
-          id: 1,
-          title:
-            "Cont. 2 | Tipo: AIH | Beneficiário: 0000000000 - Fulano de Tal",
-        },
-        {
-          id: 2,
-          title:
-            "Cont. 3 | Tipo: AIH | Beneficiário: 0000000000 - Fulano de Tal",
-        },
-      ],
     };
   },
   methods: {
-    activateItem(index) {
+    chooseIcon(index) {
       return this.panel === index ? "mdi-minus" : "mdi-plus";
     },
   },
